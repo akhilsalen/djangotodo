@@ -1,0 +1,17 @@
+{% include 'partials/header.html' %}
+<a href="/todos">GO BACK </a>
+<h2>{{ todo.title }}</h2>
+<p>{{ todo.text }}</p>
+<p>Current Status: {{ todo.current_status }}</p>:
+<p>Updated at: {{ todo.updated_at }}</p>
+
+<form method="post" action="{% url 'update_status' todo.id %}">
+    {% csrf_token %}
+  <label for="updated_datetime">Updated Date & Time:</label>
+    <input type="datetime-local" name="updated_datetime" id="updated_datetime" value="{{ todo.updated_at }}">
+
+
+    <button type="submit">Update</button>
+</form>
+
+{% include 'partials/footer.html' %}

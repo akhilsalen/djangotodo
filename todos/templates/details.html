@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="todo-list">
+        <h1>{{ todo.title }}</h1>
+        <p>{{ todo.text }}</p>
+        <p>Current Status: {{ todo.current_status }}</p>:
+        <hr>
+
+        <form method="post" action="{% url 'update_status' todo.id %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="current_status">Update Status:</label>
+                <textarea class="form-control" rows="3" name="current_status" id="current_status">{{ todo.current_status }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+
+        <p>Updated at: {{ todo.updated_at }}</p>
+        <p>Created at: {{ todo.created_at }}</p>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--{% include 'partials/header.html' %}-->
+<!--<a href="/todos">GO BACK </a>-->
+<!--<h2>{{ todo.title }}</h2>-->
+<!--<p>{{ todo.text }}</p>-->
+<!--<p>Current Status: {{ todo.current_status }}</p>:-->
+<!--<p>Updated at: {{ todo.updated_at }}</p>-->
+
+
+
+
+<!--<form method="post" action="{% url 'update_status' todo.id %}">-->
+<!--    {% csrf_token %}-->
+<!--    <label for="current_status">Update Status:</label>-->
+<!--    <input type="textarea" name="current_status" id="current_status" value="{{ todo.current_status }}">-->
+<!--    <button type="submit">Update</button>-->
+<!--</form>-->
+
+<!--{% if todo.updated_at != todo.created_at %}-->
+<!--        <p>Most Recent Update at: {{ todo.updated_at }}</p>-->
+<!--    {% endif %}-->
+
+<!--<p>Created at: {{ todo.created_at }}</p>-->
+
+<!--{% include 'partials/footer.html' %}-->
